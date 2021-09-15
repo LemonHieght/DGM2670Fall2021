@@ -6,8 +6,14 @@ using UnityEngine.Events;
 
 public class InteractBehavior : MonoBehaviour
 {
+    public UnityEvent onMouseDown;
+    public UnityEvent onMouseUp;
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        onMouseDown.Invoke();
+    }
+    private void OnMouseUp()
+    {
+        onMouseUp.Invoke();
     }
 }
