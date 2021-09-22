@@ -4,5 +4,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ColectableSO : ScriptableObject
 {
+    public bool collected;
+    public int costValue;
+    public GameObject art;
     
 }

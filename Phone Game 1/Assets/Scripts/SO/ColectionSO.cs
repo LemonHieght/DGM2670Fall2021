@@ -10,5 +10,7 @@ public class ColectionSO : ScriptableObject
     public void Collect(ColectableSO obj)
     {
         collection.Add(obj);
+        obj.collected = true;
+        
     }
 }
