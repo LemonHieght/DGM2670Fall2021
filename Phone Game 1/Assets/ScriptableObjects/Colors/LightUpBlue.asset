@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e5352dfd3a8a0458f8f8eb7946db92, type: 3}
   m_Name: LightUpBlue
   m_EditorClassIdentifier: 
-  value: {r: 0, g: 0.26658535, b: 1, a: 1}
+  value: {r: 0.495283, g: 0.62987405, b: 1, a: 1}

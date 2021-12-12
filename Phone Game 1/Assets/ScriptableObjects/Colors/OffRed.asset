@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e5352dfd3a8a0458f8f8eb7946db92, type: 3}
   m_Name: OffRed
   m_EditorClassIdentifier: 
-  value: {r: 0.5566038, g: 0, b: 0.010681931, a: 1}
+  value: {r: 0.3773585, g: 0, b: 0, a: 1}
