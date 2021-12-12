@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class GameManagerAlgorithm : MonoBehaviour
 {
     public GameObject[] buttons;
     public int colorSelect;
-    private Renderer render;
     public float buttonOn;
     public float waitTime;
     public List<int> activePattern;
+    public Text scoreText;
 
+    private Renderer render;
     private float waitTimeCounter;
     private float buttonLightCounter;
     private bool shouldBeLit;
@@ -26,6 +28,11 @@ public class GameManagerAlgorithm : MonoBehaviour
     {
         render = buttons[activePattern[positionSequence]].GetComponent<Renderer>();
         gameActive = false;
+        if (!PlayerPrefs.HasKey("HiScore"))
+        {
+            PlayerPrefs.SetInt("HiScore", 0);
+        }
+        scoreText.text = "Score:0 Highscore:" + PlayerPrefs.GetInt("HiScore");
     }
 
     private void Update()
@@ -35,8 +42,11 @@ public class GameManagerAlgorithm : MonoBehaviour
             buttonLightCounter -= Time.deltaTime;
             
             if(buttonLightCounter < 0)
-            { 
-                render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1f);
+            {
+                if (render.material.color == new Color(render.material.color.r, render.material.color.g, render.material.color.b, 0.5f))
+                {
+                    render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1f);
+                }
                 shouldBeLit = false;
                 shouldDark = true;
                 waitTimeCounter = waitTime;
@@ -72,6 +82,7 @@ public class GameManagerAlgorithm : MonoBehaviour
         activePattern.Clear();
         positionSequence = 0;
         inputPattern = 0;
+        scoreText.text = "Score:0 Highscore:" + PlayerPrefs.GetInt("HiScore");
         
         colorSelect = Random.Range(0, buttons.Length);
         Debug.Log(colorSelect);
@@ -101,6 +112,12 @@ public class GameManagerAlgorithm : MonoBehaviour
                 inputPattern++;
                 if (inputPattern >= activePattern.Count)
                 {
+                    if(activePattern.Count > PlayerPrefs.GetInt("HiScore"))
+                    {
+                        PlayerPrefs.SetInt("HiScore" , activePattern.Count);
+                    }
+                    scoreText.text = "Score:" + activePattern.Count + " Highscore:" + PlayerPrefs.GetInt("HiScore");
+                    
                     positionSequence = 0;
                     inputPattern = 0;
                     
