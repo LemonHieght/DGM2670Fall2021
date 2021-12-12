@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class GameManagerAlgorithm : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManagerAlgorithm : MonoBehaviour
     public float waitTime;
     public List<int> activePattern;
     public Text scoreText;
+    public UnityEvent gameOver; 
 
     private Renderer render;
     private float waitTimeCounter;
@@ -136,7 +138,13 @@ public class GameManagerAlgorithm : MonoBehaviour
             {
                 Debug.Log("wrong");
                 gameActive = false;
+                Restart();
             }
         }
+    }
+
+    public void Restart()
+    {
+        gameOver.Invoke();
     }
 }
