@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 105932683}
   - component: {fileID: 105932687}
   - component: {fileID: 105932688}
+  - component: {fileID: 105932689}
   m_Layer: 0
   m_Name: GreenButton
   m_TagString: Untagged
@@ -236,13 +237,13 @@ MonoBehaviour:
   onMouseDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 732074218c1a61447b3faf563dd59476, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonBright
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 0808f326b17fdbb42921bd835a098c0d, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -263,13 +264,13 @@ MonoBehaviour:
   onMouseUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 076f7673059cb9c448c93c093d4b89c2, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonFade
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 0808f326b17fdbb42921bd835a098c0d, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -338,6 +339,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &105932689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105932682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &119084749
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +609,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &208946023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208946026}
+  - component: {fileID: 208946025}
+  - component: {fileID: 208946024}
+  m_Layer: 5
+  m_Name: Highscore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &208946024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208946023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 200
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 200
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Highscore:---
+--- !u!222 &208946025
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208946023}
+  m_CullTransparentMesh: 1
+--- !u!224 &208946026
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208946023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 910308046}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 62}
+  m_SizeDelta: {x: 0, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &222753898
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,8 +801,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 215.4}
-  m_SizeDelta: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 120}
+  m_SizeDelta: {x: 0, y: 30.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322939864
 MonoBehaviour:
@@ -725,7 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -734,18 +826,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 53
+    m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 300
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score:---  Highscore:---
+  m_Text: Current Score:---
 --- !u!222 &322939865
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1082,7 +1174,7 @@ RectTransform:
   m_Children:
   - {fileID: 501864029}
   m_Father: {fileID: 910308046}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1302,6 +1394,7 @@ GameObject:
   - component: {fileID: 830695539}
   - component: {fileID: 830695543}
   - component: {fileID: 830695544}
+  - component: {fileID: 830695545}
   m_Layer: 0
   m_Name: OrangeButton
   m_TagString: Untagged
@@ -1401,13 +1494,13 @@ MonoBehaviour:
   onMouseDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 45bf27f2ac424dd428586530d04aa213, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonBright
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: c9526e9b6e8ce824ab4ba17fa476741a, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1428,13 +1521,13 @@ MonoBehaviour:
   onMouseUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 6707291d6d7473d4f857f1632fa55df8, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonFade
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: c9526e9b6e8ce824ab4ba17fa476741a, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1503,6 +1596,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &830695545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830695538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &910308042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,6 +1701,7 @@ RectTransform:
   m_Children:
   - {fileID: 539316619}
   - {fileID: 322939863}
+  - {fileID: 208946026}
   - {fileID: 663889844}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1798,6 +1904,7 @@ GameObject:
   - component: {fileID: 1190990594}
   - component: {fileID: 1190990598}
   - component: {fileID: 1190990600}
+  - component: {fileID: 1190990599}
   m_Layer: 0
   m_Name: PurpleButton
   m_TagString: Untagged
@@ -1897,13 +2004,13 @@ MonoBehaviour:
   onMouseDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 72550b5dad0a03943853d60292a40e92, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonBright
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 061b00e65d4e6a94786cdc99af95c063, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1924,13 +2031,13 @@ MonoBehaviour:
   onMouseUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 11cdee8a5be02404094bd0b3f4e07e75, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonFade
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 061b00e65d4e6a94786cdc99af95c063, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1960,6 +2067,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1190990599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190990593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1190990600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2050,6 +2169,7 @@ GameObject:
   - component: {fileID: 1708079393}
   - component: {fileID: 1708079397}
   - component: {fileID: 1708079398}
+  - component: {fileID: 1708079399}
   m_Layer: 0
   m_Name: YellowButton
   m_TagString: Untagged
@@ -2149,13 +2269,13 @@ MonoBehaviour:
   onMouseDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 33c378364b66aed42982fb817eb4313c, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonBright
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 96c6f9324a915134fa9a428183df1768, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2176,13 +2296,13 @@ MonoBehaviour:
   onMouseUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0bbfadb6c927f434bae53aa6759d7335, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonFade
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 96c6f9324a915134fa9a428183df1768, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2251,6 +2371,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1708079399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708079392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1730430569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,10 +2420,11 @@ MonoBehaviour:
   - {fileID: 1708079392}
   - {fileID: 105932682}
   colorSelect: 0
-  buttonOn: 1
-  waitTime: 0.5
+  buttonOn: 1.5
+  waitTime: 0.65
   activePattern: 
   scoreText: {fileID: 322939864}
+  highscoreText: {fileID: 208946024}
   gameOver:
     m_PersistentCalls:
       m_Calls:
@@ -2533,6 +2666,7 @@ GameObject:
   - component: {fileID: 2085502519}
   - component: {fileID: 2085502523}
   - component: {fileID: 2085502524}
+  - component: {fileID: 2085502525}
   m_Layer: 0
   m_Name: RedButton
   m_TagString: Untagged
@@ -2632,13 +2766,13 @@ MonoBehaviour:
   onMouseDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: f259df1e7dbbaa940914d9d33cda816e, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonBright
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 14a264a2a828fc141bb325e3602ac9c0, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2659,13 +2793,13 @@ MonoBehaviour:
   onMouseUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 85f23d89e4312b64d9db8937c2458224, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonFade
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 14a264a2a828fc141bb325e3602ac9c0, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2734,6 +2868,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2085502525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085502518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2126194728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2894,7 @@ GameObject:
   - component: {fileID: 2126194729}
   - component: {fileID: 2126194733}
   - component: {fileID: 2126194734}
+  - component: {fileID: 2126194735}
   m_Layer: 0
   m_Name: BlueButton
   m_TagString: Untagged
@@ -2847,13 +2994,13 @@ MonoBehaviour:
   onMouseDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: bc50a3de02998b04aaf2a41b3dbe5333, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonBright
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 19c303ad27a1f3c49bc3746f16f3774e, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2874,13 +3021,13 @@ MonoBehaviour:
   onMouseUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 389144ca7cfb94043ac387179eaffdfb, type: 2}
-        m_TargetAssemblyTypeName: ColorSO, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 2
+      - m_Target: {fileID: 1730430570}
+        m_TargetAssemblyTypeName: GameManagerAlgorithm, Assembly-CSharp
+        m_MethodName: ButtonFade
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 19c303ad27a1f3c49bc3746f16f3774e, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2949,6 +3096,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2126194735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126194728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2126559512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,7 +3160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d5f11f0169a38a94097e5da35dd23af5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

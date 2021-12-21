@@ -14,6 +14,7 @@ public class GameManagerAlgorithm : MonoBehaviour
     public float waitTime;
     public List<int> activePattern;
     public Text scoreText;
+    public Text highscoreText;
     public UnityEvent gameOver; 
 
     private Renderer render;
@@ -34,7 +35,9 @@ public class GameManagerAlgorithm : MonoBehaviour
         {
             PlayerPrefs.SetInt("HiScore", 0);
         }
-        scoreText.text = "Score:0 Highscore:" + PlayerPrefs.GetInt("HiScore");
+
+        scoreText.text = "Current Score:0";
+        highscoreText.text = "Highscore:" + PlayerPrefs.GetInt("HiScore");
     }
 
     private void Update()
@@ -45,9 +48,9 @@ public class GameManagerAlgorithm : MonoBehaviour
             
             if(buttonLightCounter < 0)
             {
-                if (render.material.color == new Color(render.material.color.r, render.material.color.g, render.material.color.b, 0.5f))
+                if (render.material.color == new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1f))
                 {
-                    render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1f);
+                    ButtonFade();
                 }
                 shouldBeLit = false;
                 shouldDark = true;
@@ -84,8 +87,8 @@ public class GameManagerAlgorithm : MonoBehaviour
         activePattern.Clear();
         positionSequence = 0;
         inputPattern = 0;
-        scoreText.text = "Score:0 Highscore:" + PlayerPrefs.GetInt("HiScore");
-        
+        scoreText.text = "Current Score:0";
+        highscoreText.text = "Highscore:" + PlayerPrefs.GetInt("HiScore");
         colorSelect = Random.Range(0, buttons.Length);
         Debug.Log(colorSelect);
         activePattern.Add(colorSelect);
@@ -100,7 +103,7 @@ public class GameManagerAlgorithm : MonoBehaviour
     public void RenderColorSelect()
     {
         render = buttons[activePattern[positionSequence]].GetComponent<Renderer>();
-        render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 0.5f);
+        render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1f);
     }
 
     public void ColorPress(int whatButton)
@@ -110,6 +113,7 @@ public class GameManagerAlgorithm : MonoBehaviour
             if (activePattern[inputPattern] == whatButton)
             {
                 Debug.Log("Correct");
+                colorSelect = inputPattern;
 
                 inputPattern++;
                 if (inputPattern >= activePattern.Count)
@@ -118,7 +122,9 @@ public class GameManagerAlgorithm : MonoBehaviour
                     {
                         PlayerPrefs.SetInt("HiScore" , activePattern.Count);
                     }
-                    scoreText.text = "Score:" + activePattern.Count + " Highscore:" + PlayerPrefs.GetInt("HiScore");
+
+                    scoreText.text = "Current Score:" + activePattern.Count;
+                    highscoreText.text = "Highscore:" + PlayerPrefs.GetInt("HiScore");
                     
                     positionSequence = 0;
                     inputPattern = 0;
@@ -143,6 +149,16 @@ public class GameManagerAlgorithm : MonoBehaviour
         }
     }
 
+    public void ButtonFade()
+    {
+        render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 0.5f);
+    }
+
+    public void ButtonBright()
+    {
+        render = buttons[activePattern[inputPattern]].GetComponent<Renderer>();
+        render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1f);
+    }
     public void Restart()
     {
         gameOver.Invoke();
