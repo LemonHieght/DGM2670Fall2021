@@ -137,8 +137,8 @@ GameObject:
   - component: {fileID: 105932683}
   - component: {fileID: 105932687}
   - component: {fileID: 105932688}
-  - component: {fileID: 105932689}
   - component: {fileID: 105932690}
+  - component: {fileID: 105932689}
   m_Layer: 0
   m_Name: GreenButton
   m_TagString: Untagged
@@ -373,11 +373,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 105932682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Script: {fileID: 11500000, guid: 66079d443ed72564385a32da0ac8ac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 0}
-  button: {fileID: 0}
 --- !u!82 &105932690
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1644,8 +1642,8 @@ GameObject:
   - component: {fileID: 830695539}
   - component: {fileID: 830695543}
   - component: {fileID: 830695544}
-  - component: {fileID: 830695545}
   - component: {fileID: 830695546}
+  - component: {fileID: 830695545}
   m_Layer: 0
   m_Name: OrangeButton
   m_TagString: Untagged
@@ -1880,11 +1878,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 830695538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Script: {fileID: 11500000, guid: 66079d443ed72564385a32da0ac8ac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 0}
-  button: {fileID: 0}
 --- !u!82 &830695546
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2277,8 +2273,8 @@ GameObject:
   - component: {fileID: 1190990594}
   - component: {fileID: 1190990598}
   - component: {fileID: 1190990600}
-  - component: {fileID: 1190990599}
   - component: {fileID: 1190990601}
+  - component: {fileID: 1190990599}
   m_Layer: 0
   m_Name: PurpleButton
   m_TagString: Untagged
@@ -2474,11 +2470,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1190990593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Script: {fileID: 11500000, guid: 66079d443ed72564385a32da0ac8ac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 0}
-  button: {fileID: 0}
 --- !u!114 &1190990600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2792,8 +2786,8 @@ GameObject:
   - component: {fileID: 1708079393}
   - component: {fileID: 1708079397}
   - component: {fileID: 1708079398}
-  - component: {fileID: 1708079399}
   - component: {fileID: 1708079400}
+  - component: {fileID: 1708079399}
   m_Layer: 0
   m_Name: YellowButton
   m_TagString: Untagged
@@ -3028,11 +3022,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1708079392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Script: {fileID: 11500000, guid: 66079d443ed72564385a32da0ac8ac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 0}
-  button: {fileID: 0}
 --- !u!82 &1708079400
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3195,7 +3187,6 @@ MonoBehaviour:
         m_CallState: 2
   correct: {fileID: 1505638758}
   incorrect: {fileID: 273931266}
-  waitPattern: 1
 --- !u!4 &1730430571
 Transform:
   m_ObjectHideFlags: 0
@@ -3422,8 +3413,8 @@ GameObject:
   - component: {fileID: 2085502519}
   - component: {fileID: 2085502523}
   - component: {fileID: 2085502524}
-  - component: {fileID: 2085502525}
   - component: {fileID: 2085502526}
+  - component: {fileID: 2085502525}
   m_Layer: 0
   m_Name: RedButton
   m_TagString: Untagged
@@ -3658,11 +3649,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2085502518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Script: {fileID: 11500000, guid: 66079d443ed72564385a32da0ac8ac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 0}
-  button: {fileID: 0}
 --- !u!82 &2085502526
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3773,8 +3762,8 @@ GameObject:
   - component: {fileID: 2126194729}
   - component: {fileID: 2126194733}
   - component: {fileID: 2126194734}
-  - component: {fileID: 2126194735}
   - component: {fileID: 2126194736}
+  - component: {fileID: 2126194735}
   m_Layer: 0
   m_Name: BlueButton
   m_TagString: Untagged
@@ -4009,11 +3998,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2126194728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36c3c49d17aecd4487914c254452bda, type: 3}
+  m_Script: {fileID: 11500000, guid: 66079d443ed72564385a32da0ac8ac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 0}
-  button: {fileID: 0}
 --- !u!82 &2126194736
 AudioSource:
   m_ObjectHideFlags: 0
