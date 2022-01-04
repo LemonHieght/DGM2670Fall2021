@@ -27,10 +27,9 @@ public class GameManagerAlgorithm : MonoBehaviour
     private float buttonLightCounter;
     private bool shouldBeLit;
     private bool shouldDark;
-    private bool gameActive;
+    public bool gameActive;
     private int positionSequence;
     private int inputPattern;
-    private ColiderEnableDisable colliderControl;
 
 
     private void Start()
@@ -122,7 +121,6 @@ public class GameManagerAlgorithm : MonoBehaviour
     {
         if (gameActive)
         {
-            colliderControl.ColliderOn();
             if (activePattern[inputPattern] == whatButton)
             {
                 colorSelect = inputPattern;
@@ -164,10 +162,6 @@ public class GameManagerAlgorithm : MonoBehaviour
                 gameActive = false;
                 Restart();
             }
-        }
-        if (!gameActive)
-        {
-            colliderControl.Collideroff();
         }
     }
 

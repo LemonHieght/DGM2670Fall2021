@@ -6,14 +6,35 @@ using UnityEngine.Events;
 
 public class InteractBehavior : MonoBehaviour
 {
+    public GameObject manager;
+    private bool buttonActive;
     public UnityEvent onMouseDown;
     public UnityEvent onMouseUp;
+    private GameManagerAlgorithm gameManager;
+
+
+    private void Start()
+    { 
+        gameManager = manager.GetComponent<GameManagerAlgorithm>();
+    }
+
+    private void Update()
+    {
+        buttonActive = gameManager.gameActive;
+    }
+
     private void OnMouseDown()
     {
-        onMouseDown.Invoke();
+        if (buttonActive == true)
+        {
+            onMouseDown.Invoke();
+        }
     }
     private void OnMouseUp()
     {
-        onMouseUp.Invoke();
+        if (buttonActive == true)
+        {
+            onMouseUp.Invoke();
+        }
     }
 }
