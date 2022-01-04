@@ -1,38 +1,35 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class InteractBehavior : MonoBehaviour
 {
     public GameObject manager;
-    private bool buttonActive;
+    private bool _buttonActive;
     public UnityEvent onMouseDown;
     public UnityEvent onMouseUp;
-    private GameManagerAlgorithm gameManager;
+    private GameManagerAlgorithm _gameManager;
 
 
     private void Start()
     { 
-        gameManager = manager.GetComponent<GameManagerAlgorithm>();
+        _gameManager = manager.GetComponent<GameManagerAlgorithm>();
     }
 
     private void Update()
     {
-        buttonActive = gameManager.gameActive;
+        _buttonActive = _gameManager.gameActive;
     }
 
     private void OnMouseDown()
     {
-        if (buttonActive == true)
+        if (_buttonActive == true)
         {
             onMouseDown.Invoke();
         }
     }
     private void OnMouseUp()
     {
-        if (buttonActive == true)
+        if (_buttonActive == true)
         {
             onMouseUp.Invoke();
         }

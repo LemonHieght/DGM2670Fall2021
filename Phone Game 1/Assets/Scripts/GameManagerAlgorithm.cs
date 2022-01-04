@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Antlr.Runtime.Tree;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
@@ -20,21 +18,21 @@ public class GameManagerAlgorithm : MonoBehaviour
     public UnityEvent gameOver;
     public AudioSource correct;
     public AudioSource incorrect;
-
-    private float waitBetweenPattern;
-    private Renderer render;
-    private float waitTimeCounter;
-    private float buttonLightCounter;
-    private bool shouldBeLit;
-    private bool shouldDark;
     public bool gameActive;
-    private int positionSequence;
-    private int inputPattern;
+
+    private float _waitBetweenPattern;
+    private Renderer _render;
+    private float _waitTimeCounter;
+    private float _buttonLightCounter;
+    private bool _shouldBeLit;
+    private bool _shouldDark;
+    private int _positionSequence;
+    private int _inputPattern;
 
 
     private void Start()
     {
-        render = buttons[activePattern[positionSequence]].GetComponent<Renderer>();
+        _render = buttons[activePattern[_positionSequence]].GetComponent<Renderer>();
         gameActive = false;
         if (!PlayerPrefs.HasKey("HiScore"))
         {
@@ -44,49 +42,49 @@ public class GameManagerAlgorithm : MonoBehaviour
         scoreText.text = "Current Score:0";
         highscoreText.text = "Highscore:" + PlayerPrefs.GetInt("HiScore");
 
-        shouldDark = false;
-        shouldBeLit = false;
-        buttonLightCounter = buttonOn;
+        _shouldDark = false;
+        _shouldBeLit = false;
+        _buttonLightCounter = buttonOn;
     }
 
     private void Update()
     {
-        if (shouldBeLit)
+        if (_shouldBeLit)
         {
-            buttonLightCounter -= Time.deltaTime;
+            _buttonLightCounter -= Time.deltaTime;
             
-            if(buttonLightCounter <= 0)
+            if(_buttonLightCounter <= 0)
             {
-                if (render.material.color == new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1.5f))
+                if (_render.material.color == new Color(_render.material.color.r, _render.material.color.g, _render.material.color.b, 1.5f))
                 {
                     ButtonFade();
-                    buttonSound[activePattern[positionSequence]].Stop();
+                    buttonSound[activePattern[_positionSequence]].Stop();
                 }
-                shouldBeLit = false;
-                shouldDark = true;
-                waitTimeCounter = waitTime;
-                positionSequence++;
+                _shouldBeLit = false;
+                _shouldDark = true;
+                _waitTimeCounter = waitTime;
+                _positionSequence++;
             }
         }
-        if (shouldDark)
+        if (_shouldDark)
         {
-            waitTimeCounter -= Time.deltaTime;
+            _waitTimeCounter -= Time.deltaTime;
             
-            if (positionSequence >= activePattern.Count)
+            if (_positionSequence >= activePattern.Count)
             {
-                shouldDark = false;
+                _shouldDark = false;
                 gameActive = true;
             }
             else
             {
-                if (waitTimeCounter <= 0)
+                if (_waitTimeCounter <= 0)
                 {
                     RenderColorSelect();
-                    buttonSound[activePattern[positionSequence]].Play();
+                    buttonSound[activePattern[_positionSequence]].Play();
                     
-                    buttonLightCounter = buttonOn;
-                    shouldBeLit = true;
-                    shouldDark = false;
+                    _buttonLightCounter = buttonOn;
+                    _shouldBeLit = true;
+                    _shouldDark = false;
                 }
             }
         }
@@ -95,8 +93,8 @@ public class GameManagerAlgorithm : MonoBehaviour
     public void StartGame()
     {
         activePattern.Clear();
-        positionSequence = 0;
-        inputPattern = 0;
+        _positionSequence = 0;
+        _inputPattern = 0;
         scoreText.text = "Current Score:0";
         highscoreText.text = "Highscore:" + PlayerPrefs.GetInt("HiScore");
         colorSelect = Random.Range(0, buttons.Length);
@@ -104,30 +102,31 @@ public class GameManagerAlgorithm : MonoBehaviour
         activePattern.Add(colorSelect);
         
         RenderColorSelect();
-        buttonSound[activePattern[positionSequence]].Play();
+        buttonSound[activePattern[_positionSequence]].Play();
 
-        buttonLightCounter = buttonOn;
+        _buttonLightCounter = buttonOn;
         
-        shouldBeLit = true;
+        _shouldBeLit = true;
     }
 
-    public void RenderColorSelect()
+    private void RenderColorSelect()
     {
-        render = buttons[activePattern[positionSequence]].GetComponent<Renderer>();
-        render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1.5f);
+        _render = buttons[activePattern[_positionSequence]].GetComponent<Renderer>();
+        var material = _render.material;
+        material.color = new Color(material.color.r, material.color.g, material.color.b, 1.5f);
     }
 
     public void ColorPress(int whatButton)
     {
         if (gameActive)
         {
-            if (activePattern[inputPattern] == whatButton)
+            if (activePattern[_inputPattern] == whatButton)
             {
-                colorSelect = inputPattern;
+                colorSelect = _inputPattern;
 
-                inputPattern++;
+                _inputPattern++;
                 
-                if (inputPattern >= activePattern.Count)
+                if (_inputPattern >= activePattern.Count)
                 {
                     Debug.Log("Correct");
                     correct.Play();
@@ -139,8 +138,8 @@ public class GameManagerAlgorithm : MonoBehaviour
                     scoreText.text = "Current Score:" + activePattern.Count;
                     highscoreText.text = "Highscore:" + PlayerPrefs.GetInt("HiScore");
                     
-                    positionSequence = 0;
-                    inputPattern = 0;
+                    _positionSequence = 0;
+                    _inputPattern = 0;
                     
                     colorSelect = Random.Range(0, buttons.Length);
                     activePattern.Add(colorSelect);
@@ -149,9 +148,9 @@ public class GameManagerAlgorithm : MonoBehaviour
                     // buttonSound[activePattern[positionSequence]].Play();
                     StartCoroutine(DelayNextPattern(0.5f));
 
-                    buttonLightCounter = buttonOn;
+                    _buttonLightCounter = buttonOn;
         
-                    shouldBeLit = true;
+                    _shouldBeLit = true;
                     gameActive = false;
                 }
             }
@@ -168,13 +167,14 @@ public class GameManagerAlgorithm : MonoBehaviour
 
     public void ButtonFade()
     {
-        render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 0.5f);
+        _render.material.color = new Color(_render.material.color.r, _render.material.color.g, _render.material.color.b, 0.5f);
     }
 
     public void ButtonBright()
     {
-        render = buttons[activePattern[inputPattern]].GetComponent<Renderer>();
-        render.material.color = new Color(render.material.color.r, render.material.color.g, render.material.color.b, 1.5f);
+        _render = buttons[activePattern[_inputPattern]].GetComponent<Renderer>();
+        var material = _render.material;
+        material.color = new Color(material.color.r, material.color.g, material.color.b, 1.5f);
     }
 
     private void Restart()
@@ -186,6 +186,6 @@ public class GameManagerAlgorithm : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         RenderColorSelect();
-        buttonSound[activePattern[positionSequence]].Play();
+        buttonSound[activePattern[_positionSequence]].Play();
     }
 }
